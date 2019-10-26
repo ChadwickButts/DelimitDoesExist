@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delimit Does Exist</title>
+</head>
+
+<body>
+    <div style="display:block">
+        <div style="float: left;">
+            <textarea id="leftTextArea"></textarea>
+        </div>
+        <div style="float: left;">
+            <button id="delimitBtn">Delimit</button>
+            <br>
+            <button>Button</button>
+        </div>
+        <div style="float: left;">
+            <textarea id="rightTextArea"></textarea>
+        </div>
+    </div>
+
+    <div style="display:block; clear: left;">
+        <label>Settings</label>
+        <select id="delimitingChar">
+            <option>,</option>
+            <option>;</option>
+            <option>&</option>
+            <option>_</option>
+        </select>
+    </div>
+    <script src="delimiter.js"></script>
+</body>
+
+</html>
