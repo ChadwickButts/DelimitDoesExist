@@ -11,7 +11,7 @@
 
         userText = userText.split(new RegExp(/\s/, 'g'));
         console.log(userText);
-        rightTextArea.value = userText;
+        rightTextArea.value = userText.join(delimiter.toString());
     }
 
     delimitBtn.addEventListener("click", delimitText);
