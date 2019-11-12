@@ -16,21 +16,25 @@
         <div style="float: left;">
             <button id="delimitBtn">Delimit</button>
             <br>
-            <button>Button</button>
+            <button id="clearBtn">Clear Text</button>
         </div>
         <div style="float: left;">
             <textarea id="rightTextArea"></textarea>
         </div>
     </div>
 
-    <div style="display:block; clear: left;">
-        <label>Settings</label>
-        <select id="delimitingChar">
-            <option>,</option>
-            <option>;</option>
-            <option>&</option>
-            <option>_</option>
-        </select>
+    <div id="settingsSection">
+        <div style="display:block; clear: left;">
+            <label>Settings</label>
+            <select id="delimitingChar">
+                <option>,</option>
+                <option>;</option>
+                <option>&</option>
+                <option>_</option>
+            </select>
+        </div>
+        <input type="checkbox" id="removeNewLineChkbx">Remove Formatting (New Lines)</input>
+
     </div>
     <script src="delimiter.js"></script>
 </body>
