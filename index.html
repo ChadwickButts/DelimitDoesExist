@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Delimit Does Exist</title>
+    <style>
+        .hide {
+            display: none;
+            color: green;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,24 +22,29 @@
         <div style="float: left;">
             <button id="delimitBtn">Delimit</button>
             <br>
+            <button id="explodeBtn">Explode</button>
+            <br>
             <button id="clearBtn">Clear Text</button>
         </div>
         <div style="float: left;">
             <textarea id="rightTextArea"></textarea>
         </div>
     </div>
-
-    <div id="settingsSection">
-        <div style="display:block; clear: left;">
+<button id="settingsBtn" style="display:block; clear: left;">Converter Settings</button>
+    <div id="settingsSection" class="hide">
+        <div style="display:block;">
             <label>Settings</label>
             <select id="delimitingChar">
                 <option>,</option>
                 <option>;</option>
                 <option>&</option>
                 <option>_</option>
+                <option value=" ">spaces</option>
+                <option>new line</option>
             </select>
         </div>
         <input type="checkbox" id="removeNewLineChkbx">Remove Formatting (New Lines)</input>
+        <input type="checkbox" id="removeDuplicatesChkbx">Remove Duplicates</input>
 
     </div>
     <script src="delimiter.js"></script>
