@@ -20,6 +20,16 @@
             <textarea id="leftTextArea"></textarea>
         </div>
         <div style="float: left;">
+            <div style="display:block;">
+                <select id="delimitingChar">
+                    <option>,</option>
+                    <option>;</option>
+                    <option>&</option>
+                    <option>_</option>
+                    <option value=" ">spaces</option>
+                    <option>new line</option>
+                </select>
+            </div>
             <button id="delimitBtn">Delimit</button>
             <br>
             <button id="explodeBtn">Explode</button>
@@ -29,23 +39,38 @@
         <div style="float: left;">
             <textarea id="rightTextArea"></textarea>
         </div>
-    </div>
-<button id="settingsBtn" style="display:block; clear: left;">Converter Settings</button>
-    <div id="settingsSection" class="hide">
-        <div style="display:block;">
-            <label>Settings</label>
-            <select id="delimitingChar">
-                <option>,</option>
-                <option>;</option>
-                <option>&</option>
-                <option>_</option>
-                <option value=" ">spaces</option>
-                <option>new line</option>
-            </select>
-        </div>
-        <input type="checkbox" id="removeNewLineChkbx">Remove Formatting (New Lines)</input>
-        <input type="checkbox" id="removeDuplicatesChkbx">Remove Duplicates</input>
 
+    </div>
+    <button id="settingsBtn" style="display:block; clear: left;">Converter Settings</button>
+    <div id="settingsSection" class="hide">
+        <h3>Settings</h3>
+        <br>
+        <input type="checkbox" id="removeNewLineChkbx">Remove New Lines</input>
+        <br>
+        <input type="checkbox" id="removeDuplicatesChkbx">Remove Duplicates</input>
+        <div id="quotes">
+            <span>Quotes</span>
+            <br>
+            <input class="rdoQuotes" id="rdoNone" type="radio" name="quotes" value="none" checked><label for="rdoNone">None</label>
+            <input class="rdoQuotes" id="rdoDouble" type="radio" name="quotes" value="double"><label for="rdoDouble">Double</label>
+            <input class="rdoQuotes" id="rdoSingle" type="radio" name="quotes" value="single"><label for="rdoSingle">Single</label>
+        </div>
+        <br>
+        <div id="htmlAddOns">
+            <label for="customDelimiter">Custom Delimiter</label>
+            <input id="customDelimiter" type="text" placeholder="*">
+            <br>
+            <label>Tags</label>
+            <input id="startTag" type="text" placeholder="<li>">
+            <input id="endTag" type="text" placeholder="</li>">
+            <br>
+            <label>Interval</label>
+            <input id="intervalNum" type="number" value="5">
+            <br>
+            <label>Interval Wrap</label>
+            <input id="intStartTag" type="text" placeholder="<li>">
+            <input id="intEndTag" type="text" placeholder="</li>">
+        </div>
     </div>
     <script src="delimiter.js"></script>
 </body>
