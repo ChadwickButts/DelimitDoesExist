@@ -36,9 +36,11 @@
     
     function removeNewLine() {
         let intervalCount = document.getElementById("intervalNum");
+        let intervalStart = document.getElementById("intStartTag");
+        let intervalEnd = document.getElementById("intEndTag");
         let removeNewLineChkbx = document.querySelector("#removeNewLineChkbx");
         if (removeNewLineChkbx.checked) {
-            if (parseInt(intervalCount.value) > 0) {
+            if (parseInt(intervalCount.value) > 0 && (intervalStart.value !== "" || intervalEnd.value !== "")) {
                 userText = userText.join("");
             } else {
                 userText = userText.join(delimiter.toString());
@@ -46,7 +48,7 @@
         }
         
         if (!removeNewLineChkbx.checked) {
-            if (parseInt(intervalCount.value) > 0){
+            if (parseInt(intervalCount.value) > 0 && (intervalStart.value !== "" || intervalEnd.value !== "")){
                 userText = userText.join('\n');
             } else {
                 userText = userText.join(delimiter.toString() + '\n');
@@ -119,7 +121,7 @@
 
         let intervalArray = [];
 
-        if (parseInt(intervalCount.value) > 0) {
+        if (parseInt(intervalCount.value) > 0 && (intervalStart.value !== "" || intervalEnd.value !== "")) {
             while (userText.length > 0) {
                 let intervalCounter = parseInt(intervalCount.value);
                 let intervalString = intervalStart.value;
