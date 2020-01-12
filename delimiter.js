@@ -35,11 +35,22 @@
     }
     
     function removeNewLine() {
+        let intervalCount = document.getElementById("intervalNum");
         let removeNewLineChkbx = document.querySelector("#removeNewLineChkbx");
         if (removeNewLineChkbx.checked) {
-            userText = userText.join(delimiter.toString());
-        } else {
-            userText = userText.join(delimiter.toString() + '\n');
+            if (parseInt(intervalCount.value) > 0) {
+                userText = userText.join("");
+            } else {
+                userText = userText.join(delimiter.toString());
+            }
+        }
+        
+        if (!removeNewLineChkbx.checked) {
+            if (parseInt(intervalCount.value) > 0){
+                userText = userText.join('\n');
+            } else {
+                userText = userText.join(delimiter.toString() + '\n');
+            }
         }
     }
 
@@ -106,33 +117,26 @@
         let intervalStart = document.getElementById("intStartTag");
         let intervalEnd = document.getElementById("intEndTag");
 
-        let intArray = [];
+        let intervalArray = [];
 
-        let string;
-        let counter = 1;
-        while (userText.length > 0 ) {
-            if (counter === 1) {
-                string = intervalStart.value + userText.shift();
-                intArray.push(string); 
-                counter += 1;
-                console.log("counter = 1");
-            } 
-            if (counter !== 1 && counter !== intervalCount.value) {
-                string = userText.shift();
-                intArray.push(string); 
-                counter += 1;
-                console.log(counter);
+        if (parseInt(intervalCount.value) > 0) {
+            while (userText.length > 0) {
+                let intervalCounter = parseInt(intervalCount.value);
+                let intervalString = intervalStart.value;
+                while (intervalCounter > 0) {
+                    if (userText.length > 0) {
+                        intervalString += userText.shift();
+                        intervalString += delimiter;
+                    } else 
+                        break;
+                    intervalCounter--;
+                }
+                intervalString += intervalEnd.value;
+           
+                intervalArray.push(intervalString);
             }
-            
-            if (counter === intervalCount.value || userText.length === 1) {
-                debugger;
-                string = userText.shift() + intervalEnd.value + "\n";
-                intArray.push(string); 
-                counter = 1;
-                console.log("counter = " + intervalCount.value);
-            } 
+           userText = intervalArray;
         }
-        console.log(intArray);
     }
 
 
