@@ -14,17 +14,20 @@
         userText = leftTextArea.value;
         delimiter = document.querySelector("#delimitingChar").value;
         
-        userText = userText.split(new RegExp(/\n/, 'g'));
+        if (delimiter === "new line" || delimiter === " ") {
+            rightTextArea.value = userText;
+        } else {
+            userText = userText.trim().split(new RegExp(/\n/, 'g'));
         
-        replaceDelimeter();
-        removeDuplicates();
-        addQuotes();
-        addTags();
-        addInterval();
-        removeNewLine();
-        
-        rightTextArea.value = userText;
-        
+            replaceDelimeter();
+            removeDuplicates();
+            addQuotes();
+            addTags();
+            addInterval();
+            removeNewLine();
+            
+            rightTextArea.value = userText;
+        }
     }
     
     function removeDuplicates() {
@@ -66,7 +69,7 @@
     function explodeText() {
         userText = leftTextArea.value;
         delimiter = document.querySelector("#delimitingChar").value;
-        userText = userText.split(new RegExp(/\W/, 'g'));
+        userText = userText.trim().split(new RegExp(/\W/, 'g'));
 
         if (delimiter === "new line") {
             userText = userText.join('\n');

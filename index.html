@@ -7,20 +7,117 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Delimit Does Exist</title>
     <style>
+        body {
+            background-color: #1f2d47;
+            color: #ffffff;
+            font-size: 24px;
+            width: fit-content;
+            margin: auto auto;
+        }
+
         .hide {
-            display: none;
+            display: none !important;
             color: green;
+        }
+
+        #mainSection {
+            display: inline-block;
+            margin: 20px auto;
+        }
+
+        #mainSection {
+            text-align: center;
+        }
+
+        #mainSection>div {
+            float: left;
+            padding: 5px;
+        }
+
+        #leftTextArea,
+        #rightTextArea {
+            height: 300px;
+            width: 500px;
+        }
+
+        #mainSection #controls {
+            display: block;
+            width: 110px;
+            text-align: center;
+        }
+
+        #controls button {
+            margin: 10px auto;
+        }
+
+        #ddDelimiter {
+            clear: left;
+            margin-bottom: 20px;
+        }
+
+        #delimitingChar {
+            padding: 10px;
+            background-color: #4f83a7;
+            color: #ffffff;
+            border: 0px;
+        }
+
+        button {
+            display: block;
+            clear: left;
+            margin: 10px 5px;
+            padding: 10px;
+            background-color: #4f83a7;
+            color: #ffffff;
+            font-size: 16px;
+            border-width: 1px;
+            border-color: #4f83a7;
+            border-radius: 25px;
+        }
+
+        button:hover {
+            background-color: #4d6575;
+            cursor: pointer;
+            border: 1px solid #ffffff;
+        }
+
+        button:active {
+            padding: 8px;
+            border: 3px solid #ffffff;
+        }
+
+        #settingsSection {
+            display: inline-block;
+        }
+
+        #quotes {
+            margin: 20px auto;
+        }
+
+        .addOn {
+            margin: 5px auto;
         }
     </style>
 </head>
 
 <body>
-    <div style="display:block">
-        <div style="float: left;">
+    <div id="mainSection">
+        <h2>Delimit Does Exist</h2>
+        <p>
+            Instructions: 
+                <ol>
+                    <li>
+                        Enter a list of values in the left text box.
+                    </li>
+                    <li>Select a character to be delimiting character.</li>
+                    <li>Click Delimit. The result will populate the right text box.</li>
+                </ol>
+        </p>        
+        <div>
             <textarea id="leftTextArea"></textarea>
         </div>
-        <div style="float: left;">
-            <div style="display:block;">
+        <div id="controls">
+            <div id="ddDelimiter">
                 <select id="delimitingChar">
                     <option>,</option>
                     <option>;</option>
@@ -29,47 +126,53 @@
                     <option value=" ">spaces</option>
                     <option>new line</option>
                 </select>
-            </div>
+            </div> 
             <button id="delimitBtn">Delimit</button>
-            <br>
             <button id="explodeBtn">Explode</button>
-            <br>
             <button id="clearBtn">Clear Text</button>
         </div>
-        <div style="float: left;">
+        <div>
             <textarea id="rightTextArea"></textarea>
         </div>
 
     </div>
-    <button id="settingsBtn" style="display:block; clear: left;">Converter Settings</button>
+    <button id="settingsBtn">Converter Settings</button>
     <div id="settingsSection" class="hide">
         <h3>Settings</h3>
-        <br>
         <input type="checkbox" id="removeNewLineChkbx">Remove New Lines</input>
         <br>
         <input type="checkbox" id="removeDuplicatesChkbx">Remove Duplicates</input>
+        <br>
         <div id="quotes">
             <span>Quotes</span>
             <br>
-            <input class="rdoQuotes" id="rdoNone" type="radio" name="quotes" value="none" checked><label for="rdoNone">None</label>
-            <input class="rdoQuotes" id="rdoDouble" type="radio" name="quotes" value="double"><label for="rdoDouble">Double</label>
-            <input class="rdoQuotes" id="rdoSingle" type="radio" name="quotes" value="single"><label for="rdoSingle">Single</label>
+            <input class="rdoQuotes" id="rdoNone" type="radio" name="quotes" value="none" checked><label
+                for="rdoNone">None</label>
+            <input class="rdoQuotes" id="rdoDouble" type="radio" name="quotes" value="double"><label
+                for="rdoDouble">Double</label>
+            <input class="rdoQuotes" id="rdoSingle" type="radio" name="quotes" value="single"><label
+                for="rdoSingle">Single</label>
         </div>
-        <br>
+
         <div id="htmlAddOns">
-            <label for="customDelimiter">Custom Delimiter</label>
-            <input id="customDelimiter" type="text" placeholder="*">
-            <br>
-            <label>Tags</label>
-            <input id="startTag" type="text" placeholder="<li>">
-            <input id="endTag" type="text" placeholder="</li>">
-            <br>
-            <label>Interval</label>
-            <input id="intervalNum" type="number" value="5">
-            <br>
-            <label>Interval Wrap</label>
-            <input id="intStartTag" type="text" placeholder="<li>">
-            <input id="intEndTag" type="text" placeholder="</li>">
+            <div class="addOn">
+                <label for="customDelimiter">Custom Delimiter</label>
+                <input id="customDelimiter" type="text" placeholder="*">
+            </div>
+            <div class="addOn">
+                <label>Tags</label>
+                <input id="startTag" type="text" placeholder="Example: <li>">
+                <input id="endTag" type="text" placeholder="Example: </li>">
+            </div>
+            <div class="addOn">
+                <label>Interval</label>
+                <input id="intervalNum" type="number" value="5">
+            </div>
+            <div class="addOn">
+                <label>Interval Wrap</label>
+                <input id="intStartTag" type="text" placeholder="Example: <li>">
+                <input id="intEndTag" type="text" placeholder="Example: </li>">
+            </div>
         </div>
     </div>
     <script src="delimiter.js"></script>
