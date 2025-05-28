@@ -1,1 +1,1 @@
-A simple delimiter application written in HTML, CSS, and Javascript.
+A simple delimiter application written in HTML and Javascript.
